@@ -16,25 +16,7 @@ module.exports = function(api) {
   }
 
   return {
-    presets: [
-      isTestEnv && [
-        require('@babel/preset-env').default,
-        {
-          targets: {
-            node: 'current'
-          }
-        }
-      ],
-      (isProductionEnv || isDevelopmentEnv) && [
-        require('@babel/preset-env').default,
-        {
-          forceAllTransforms: true,
-          useBuiltIns: 'entry',
-          modules: false,
-          exclude: ['transform-typeof-symbol']
-        }
-      ]
-    ].filter(Boolean),
+    presets: ['@vue/babel-preset-jsx'],
     plugins: [
       require('babel-plugin-macros'),
       require('@babel/plugin-syntax-dynamic-import').default,
