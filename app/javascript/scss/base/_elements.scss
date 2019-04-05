@@ -4,3 +4,7 @@
 
   min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
+
+button {
+  outline: none;
+}

@@ -10,7 +10,11 @@ import ProductDetail from '../components/product/product_detail'
 
 // SCSS
 import 'bootstrap/dist/css/bootstrap'
+import 'owl.carousel/dist/assets/owl.carousel.min'
 import '../scss/index'
+
+// JS
+import 'owl.carousel/dist/owl.carousel.min'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

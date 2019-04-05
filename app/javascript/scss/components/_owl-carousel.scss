@@ -1,0 +1,24 @@
+.owl-carousel {
+  margin: 20px auto;
+  max-width: 500px;
+
+  .owl-nav {
+    margin-top: -12px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+
+    .owl-prev,
+    .owl-next {
+      position: absolute;
+    }
+
+    .owl-prev {
+      left: 10px;
+    }
+
+    .owl-next {
+      right: 10px;
+    }
+  }
+}

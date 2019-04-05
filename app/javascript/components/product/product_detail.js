@@ -1,5 +1,7 @@
 import { mapState, mapActions, mapGetters } from 'vuex'
 
+import Carousel from '../shared/carousel'
+
 export default {
   name: 'ProductDetail',
 
@@ -35,7 +37,7 @@ export default {
 
         selectedVariant.name = `${this.name} ${foundVariant.name}`
         selectedVariant.price = foundVariant.price
-        selectedVariant.images = foundVariant.images
+        selectedVariant.images = [...foundVariant.images || [], ...this.images]
       }
 
       return selectedVariant
@@ -64,7 +66,7 @@ export default {
     return (
       <div class="product-detail" class="row py-4">
         <div class="col-md-6">
-          <img class="img-fluid" src="http://placehold.it/750x500" alt="" />
+          <Carousel images={this.selectedVariant.images} />
         </div>
 
         <div class="col-md-6">
