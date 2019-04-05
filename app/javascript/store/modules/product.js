@@ -7,6 +7,7 @@ const defaultState = {
   description: '',
   price: 0.0,
   images: [],
+  variants: [],
   published: true,
   created_at: null
 }
@@ -30,13 +31,25 @@ export const mutations = {
     state.description = product.description
     state.price = product.price
     state.images = product.images
+    state.variants = product.variants
     state.published = product.published
     state.created_at = product.created_at
+  }
+}
+
+export const getters = {
+  getVariantByID(state) {
+    return variantID => {
+      return state.variants.filter(variant => (
+        variant.id == variantID
+      ))[0]
+    }
   }
 }
 
 export default {
   state: defaultState,
   mutations,
-  actions
+  actions,
+  getters
 }

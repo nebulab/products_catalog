@@ -1,4 +1,4 @@
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'ProductDetail',
@@ -7,17 +7,53 @@ export default {
     product_id: Number
   },
 
+  data() {
+    return {
+      selectedVariantID: 0
+    }
+  },
+
   computed: {
     ...mapState({
       id: state => state.product.id,
-      name: state => state.product.name
+      name: state => state.product.name,
+      description: state => state.product.description,
+      price: state => state.product.price,
+      images: state => state.product.images,
+      variants: state => state.product.variants
     }),
+
+    selectedVariant() {
+      const selectedVariant = {
+        name: this.name,
+        price: this.price,
+        images: this.images
+      }
+
+      if (this.hasVariants()) {
+        const foundVariant = this.getVariantByID()(this.selectedVariantID || this.variants[0].id)
+
+        selectedVariant.name = `${this.name} ${foundVariant.name}`
+        selectedVariant.price = foundVariant.price
+        selectedVariant.images = foundVariant.images
+      }
+
+      return selectedVariant
+    }
   },
 
   methods: {
     ...mapActions({
       fetchProduct: 'fetchProduct'
-    })
+    }),
+
+    ...mapGetters([
+      'getVariantByID'
+    ]),
+
+    hasVariants() {
+      return this.variants.length > 0
+    }
   },
 
   created() {
@@ -26,10 +62,44 @@ export default {
 
   render() {
     return (
-      <div class="product-detail">
-        <h1 class="product-detail__name">
-          { this.name }
-        </h1>
+      <div class="product-detail" class="row py-4">
+        <div class="col-md-6">
+          <img class="img-fluid" src="http://placehold.it/750x500" alt="" />
+        </div>
+
+        <div class="col-md-6">
+          <h3 class="my-3">
+            {this.selectedVariant.name}
+          </h3>
+          <p>
+            {this.description}
+          </p>
+
+          {this.hasVariants() &&
+            <div class='variant-selector'>
+              <h3 class="my-3">
+                Select the color
+              </h3>
+              <select class="form-control"
+                onChange={(event) => this.selectedVariantID = event.target.value}>
+                {this.variants.map(variant => (
+                  <option value={variant.id}>
+                    {variant.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          }
+
+          <h3 class="my-3">Product Details</h3>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <b>Price: </b>
+              {this.selectedVariant.price}
+              <b> euro</b>
+            </li>
+          </ul>
+        </div>
       </div>
     )
   }
