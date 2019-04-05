@@ -1,5 +1,5 @@
-import products from './products'
+import api from './api'
 
 export default {
-  products
+  api
 }
