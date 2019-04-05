@@ -7,6 +7,10 @@ import store from '../store'
 // Import components
 import ProductList from '../components/product/product_list'
 
+// SCSS
+import 'bootstrap/dist/css/bootstrap'
+import '../scss/index'
+
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el: '#vue_application',

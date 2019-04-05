@@ -1,7 +1,7 @@
 module Api
   class ProductsController < Api::BaseController
     def index
-      @products = Product.all
+      @products = Product.paginate(page: params[:page])
     end
   end
 end
