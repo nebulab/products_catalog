@@ -1,5 +1,6 @@
 import { mapState, mapActions } from 'vuex'
 
+import ProductCard from './product_card'
 import Pagination from '../shared/pagination'
 
 export default {
@@ -36,9 +37,7 @@ export default {
         </h1>
         <div class="row">
           {this.products.map(product => (
-            <div class="col-md-3">
-              {product.name}
-            </div>
+            <ProductCard product={product} />
           ))}
         </div>
 
