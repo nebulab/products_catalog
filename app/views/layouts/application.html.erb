@@ -7,11 +7,17 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
+    <%= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
-    <div id="vue_application">
+    <%= render 'shared/header' %>
+
+    <div id="vue_application" class="body container">
       <%= yield %>
     </div>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>

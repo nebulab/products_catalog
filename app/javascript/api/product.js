@@ -4,8 +4,8 @@ import routes from '../routes'
 /**
  * Get all the products
  */
-const index = () => {
-  return api.get(routes.products.index)
+const index = (page) => {
+  return api.get(routes.products.index, { params: { page: page }})
     .then(response => response.data)
 }
 

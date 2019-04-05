@@ -1,4 +1,4 @@
-json.array! @products do |product|
+json.products @products do |product|
   json.name product.name
   json.description product.description
   json.price product.price
@@ -12,3 +12,4 @@ json.array! @products do |product|
   json.published product.published
   json.created_at product.created_at
 end
+json.partial! 'api/shared/pagination', pagination: @products

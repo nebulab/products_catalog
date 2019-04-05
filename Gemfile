@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'seedbank'
 gem 'ffaker'
 gem 'js-routes'
+gem 'will_paginate'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

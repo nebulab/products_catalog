@@ -1,0 +1,6 @@
+.body {
+  $header-height: 56px;
+  $footer-height: 72px;
+
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}
