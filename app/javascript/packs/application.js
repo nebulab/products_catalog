@@ -6,6 +6,7 @@ import store from '../store'
 
 // Import components
 import ProductList from '../components/product/product_list'
+import ProductDetail from '../components/product/product_detail'
 
 // SCSS
 import 'bootstrap/dist/css/bootstrap'
@@ -16,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el: '#vue_application',
     store,
     components: {
-      productlist: ProductList
+      productlist: ProductList,
+      productdetail: ProductDetail
     }
   })
 })

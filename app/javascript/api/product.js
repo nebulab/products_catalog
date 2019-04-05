@@ -9,6 +9,15 @@ const index = (page) => {
     .then(response => response.data)
 }
 
- export default {
-  index
+/**
+ * Get the product from the id
+ */
+const show = (id) => {
+  return api.get(routes.api.product(id))
+    .then(response => response.data)
+}
+
+export default {
+  index,
+  show
 }
