@@ -1,0 +1,16 @@
+.product-comments {
+  &__heading {
+    height: 38px;
+    position: relative;
+  }
+
+  &__title {
+    left: 0;
+    position: absolute;
+  }
+
+  &__add {
+    position: absolute;
+    right: 0;
+  }
+}

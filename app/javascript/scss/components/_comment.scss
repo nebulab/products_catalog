@@ -1,0 +1,22 @@
+
+.product-comment {
+  position: relative;
+
+  &__actions {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    > button {
+      $black: #000;
+
+      color: $black;
+
+      &:hover,
+      &:active ,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}

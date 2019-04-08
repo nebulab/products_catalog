@@ -1,5 +1,7 @@
 import { mapState, mapActions, mapGetters } from 'vuex'
+import * as types from '../../types'
 
+import Comments from './comments'
 import Carousel from '../shared/carousel'
 
 export default {
@@ -22,7 +24,8 @@ export default {
       description: state => state.product.description,
       price: state => state.product.price,
       images: state => state.product.images,
-      variants: state => state.product.variants
+      variants: state => state.product.variants,
+      comments: state => state.product.comments
     }),
 
     selectedVariant() {
@@ -102,6 +105,8 @@ export default {
             </li>
           </ul>
         </div>
+
+        <Comments comments={this.comments} key={this.comments.length} />
       </div>
     )
   }

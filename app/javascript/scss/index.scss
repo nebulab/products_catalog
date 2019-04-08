@@ -1,6 +1,10 @@
 // Base
 @import './base/elements';
+@import './base/animations';
 
  // Components
+@import './components/comments';
+@import './components/comment-form';
+@import './components/comment';
 @import './components/owl-carousel';
 @import './components/footer';

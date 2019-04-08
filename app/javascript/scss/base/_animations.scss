@@ -1,0 +1,21 @@
+.slide-enter-active {
+  transition-duration: .3s;
+}
+
+.slide-leave-active {
+  transition-duration: .3s;
+}
+
+.slide-enter-to,
+.slide-leave {
+  margin: 3rem 0;
+  max-height: 210px;
+  overflow: hidden;
+}
+
+.slide-enter,
+.slide-leave-to {
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+}

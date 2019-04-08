@@ -9,5 +9,9 @@ json.price product.price
   end
 end
 
+json.comments product.comments do |comment|
+  json.partial! 'api/shared/comment', comment: comment
+end
+
 json.published product.published
 json.created_at product.created_at
